@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../imgs/logo.png";
 
-const Banner = () => {
-  const [searchInput, setSearchInput] = useState();
-
+const Banner = ({ searchInput, setSearchInput }) => {
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">

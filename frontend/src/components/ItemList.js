@@ -11,16 +11,24 @@ const ItemList = (props) => {
     return <div className="py-4 no-items">No items are here... yet.</div>;
   }
 
+  const filteredItems = props.items.filter((item) => {
+    if (!props.searchFilter || props.searchFilter.length < 3) {
+      return true;
+    }
+
+    return item.title.toLowerCase().includes(props.searchFilter.toLowerCase());
+  });
+
   return (
     <div className="container py-2">
       <div className="row">
-        {props.items.map((item) => {
-          return (
-            <div className="col-sm-4 pb-2" key={item.slug}>
-              <ItemPreview item={item} />
-            </div>
-          );
-        })}
+        {filteredItems.map((item) => {
+            return (
+              <div className="col-sm-4 pb-2" key={item.slug}>
+                <ItemPreview item={item} />
+              </div>
+            );
+          })}
       </div>
 
       <ListPagination
