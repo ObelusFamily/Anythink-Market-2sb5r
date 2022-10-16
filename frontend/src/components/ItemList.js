@@ -23,12 +23,12 @@ const ItemList = (props) => {
     <div className="container py-2">
       <div className="row">
         {filteredItems.map((item) => {
-            return (
-              <div className="col-sm-4 pb-2" key={item.slug}>
-                <ItemPreview item={item} />
-              </div>
-            );
-          })}
+          return (
+            <div className="col-sm-4 pb-2" key={item.slug}>
+              <ItemPreview item={item} />
+            </div>
+          );
+        })}
       </div>
 
       <ListPagination
