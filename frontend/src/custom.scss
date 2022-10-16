@@ -59,3 +59,26 @@ body {
 .user-info {
   min-width: 800px;
 }
+
+.banner-text-container {
+  max-width: 587px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .banner-search {
+    margin: 0 8px;
+    flex: 1;
+    display: flex;
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      color: $primary;
+    }
+  }
+}

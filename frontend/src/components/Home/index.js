@@ -27,6 +27,11 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {searchInput: undefined};
+  }
+
   componentWillMount() {
     const tab = "all";
     const itemsPromise = agent.Items.all;
@@ -45,11 +50,14 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
-        <Banner />
+        <Banner
+          searchInput={this.state.searchInput}
+          setSearchInput={(value) => this.setState({ searchInput: value })}
+        />
 
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
-          <MainView />
+          <MainView searchFilter={this.state.searchInput} />
         </div>
       </div>
     );
